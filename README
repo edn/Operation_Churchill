@@ -1,0 +1,14 @@
+To solve a problem dealing with lack of access to the web and applications on a computer we have developed a program which uses computer vision to see where the user places their hands/ parts of body to run scripts/start applications. 
+
+Current issues: 
+
+Out of bounds error. 
+
+Lack of proper sensitivity regarding button push
+
+Lack of proper comment/markup
+
+Instructions:
+
+1. Place hand over button to activate website/program 
+2. hold the R or G button to arrange buttons place on the screen for a more ergonomic setup. 
