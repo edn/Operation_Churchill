@@ -6,6 +6,7 @@ class MButton {
   color c; 
   PImage prev; 
   PImage curr; 
+<<<<<<< HEAD
   int numPixels;  
   boolean topRight = false; 
   
@@ -13,13 +14,21 @@ class MButton {
 
   float previous_average;
   float current_average;
+=======
+  int numPixels; 
+  boolean topRight = false; 
+>>>>>>> 0f4ad6387bad3a2b1d86e3a23acc2f99112a1dbb
 
   boolean motion = false; 
   float diff; 
   long timePassed;
+<<<<<<< HEAD
   int vidThreshold = 150; //sensitivity
   
   int cooldown_counter = 0; //frequency
+=======
+  int vidThreshold = 120;
+>>>>>>> 0f4ad6387bad3a2b1d86e3a23acc2f99112a1dbb
 
   MButton(int tempX, int tempY, int tempbuttonWidth, int tempbuttonHeight, int bcolor) {
     buttonWidth = tempbuttonWidth; //hi erica
@@ -33,6 +42,7 @@ class MButton {
 
 
   //returns the difference
+<<<<<<< HEAD
   boolean changeDetect() {
 
     if (isdragging == false)
@@ -44,14 +54,26 @@ class MButton {
 
     for (int x = positionX; x < positionX + buttonWidth; x ++ ) { 
       for (int y = positionY; y < positionY + buttonHeight; y ++ ) {
+=======
+  int changeDetect() {
+
+    int pixelCount = 0;
+
+    for (int x = 0; x < buttonWidth; x ++ ) { 
+      for (int y = 0; y < buttonHeight; y ++ ) {
+>>>>>>> 0f4ad6387bad3a2b1d86e3a23acc2f99112a1dbb
         int newX = x + positionX; 
         int newY = y + positionY; 
 
         int loc = newX + newY*video.width;           
         color current = video.pixels[loc];      
         color previous = prevFrame.pixels[loc]; 
+<<<<<<< HEAD
 
 
+=======
+        
+>>>>>>> 0f4ad6387bad3a2b1d86e3a23acc2f99112a1dbb
         float r1 = red(current); 
         float g1 = green(current); 
         float b1 = blue(current);
@@ -60,6 +82,7 @@ class MButton {
         float b2 = blue(previous);
         diff = dist(r1,g1,b1,r2,g2,b2);
 
+<<<<<<< HEAD
         difavg = difavg + diff;
         numpixels++;
         }
@@ -107,6 +130,14 @@ class MButton {
      }
     
     
+=======
+        if (diff > vidThreshold) { 
+          pixelCount++;
+        }
+      }
+    }
+    return pixelCount;
+>>>>>>> 0f4ad6387bad3a2b1d86e3a23acc2f99112a1dbb
   } // end changeDetect() 
 
 
@@ -117,6 +148,7 @@ class MButton {
     fill(c);
     rect(positionX, positionY, buttonWidth, buttonHeight);
 
+<<<<<<< HEAD
     // test to see if the mouse is clicking on me
     if (mousePressed && mouseX > positionX && mouseX < positionX + buttonWidth && mouseY > positionY && mouseY < positionY + buttonHeight)
       {
@@ -142,4 +174,16 @@ class MButton {
 
   
 } // end class 
+=======
+    //    if(positionX <500){
+    //    image(corner, positionX, positionY); 
+    //    }
+    //    else{
+    //     image(corner2, positionX-20, positionY); 
+    //    }
+  }
+
+}
+
+>>>>>>> 0f4ad6387bad3a2b1d86e3a23acc2f99112a1dbb
 
