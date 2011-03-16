@@ -4,13 +4,19 @@ Current issues:
 
 Out of bounds error. 
 
-Lack of proper sensitivity regarding button push
+Need way to go back one track.
 
-Lack of proper comment/markup
+Have to manually change computer key commands because Robot cannot handle COMMAND key.
 
 Instructions:
 
-1. Place hand over button to activate website/program 
-2. hold the R or G button to arrange buttons place on the screen for a more ergonomic setup. 
+1. Click and drag buttons around screen to customize placement for a more ergonomic setup. 
 
-A Erica Newman, Rebecca Kazansky & WIlliam Jennings project. 
+2. Place hand over right button to launch iTunes on a Mac.
+
+3. Use left button to play/pause track.
+
+4. Use right button to skip to next track.
+
+
+A Erica Newman, Rebecca Kazansky & William Jennings project. 

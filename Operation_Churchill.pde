@@ -114,6 +114,14 @@ void draw() {
   } 
 
 
+//  if(myButton.changeDetect() && myButton2.changeDetect()) 
+//  {
+//    myButton.motion = true;
+//   
+//    println ("previous track"); 
+//    r.keyPress(keyEvent.VK_LEFT);
+//    r.keyRelease(KeyEvent.VK_LEFT  );
+//  }
 
   if(myButton2.changeDetect() && timePassed > 12000) 
   {
