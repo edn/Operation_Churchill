@@ -25,6 +25,7 @@ boolean debug = true;
 
 Robot r;
 
+boolean iTunesLaunched = false;
 Capture video; 
 
 
@@ -46,15 +47,14 @@ void setup() {
   smooth();
 
 
-//create robot instance
-try {
+  //create robot instance
+  try {
     r = new Robot();
   }
   catch (Exception e) {
     println("error");
   }
-  
- }
+}
 
 void draw() {
 
@@ -86,55 +86,52 @@ void draw() {
 
     if(myButton.changeDetect() && timePassed > 7000) 
   {
-    myButton.motion = true; 
-    println ("NPR");
-    link("http://npr.org", "_new");
-  }
 
-  if(myButton2.changeDetect() && timePassed > 7000) 
+    if (iTunesLaunched==false) {
+      myButton.motion = true; 
+      println ("iTunes"); 
+      //open spotlight
+      r.keyPress(KeyEvent.VK_CONTROL); 
+      r.keyPress(KeyEvent.VK_SPACE);
+      r.delay(200);
+      r.keyRelease(KeyEvent.VK_CONTROL); 
+      r.keyRelease(KeyEvent.VK_SPACE);
+      r.delay(2000);
+      //open iTunes
+      r.keyPress(KeyEvent.VK_I); 
+      r.keyPress(KeyEvent.VK_T);
+      r.keyPress(KeyEvent.VK_U); 
+      r.keyPress(KeyEvent.VK_N);
+      r.keyPress(KeyEvent.VK_ENTER);
+      iTunesLaunched=true;
+    }
+    if(iTunesLaunched==true) {
+      myButton.motion = true; 
+      println ("next song"); 
+      r.keyPress(KeyEvent.VK_RIGHT);
+      r.keyRelease(KeyEvent.VK_RIGHT);
+    }
+  } 
+
+
+
+  if(myButton2.changeDetect() && timePassed > 12000) 
   {
     myButton2.motion = true; 
-    println ("Program link clicked");
-    r.mouseMove(690,250);
-    r.mousePress(InputEvent.BUTTON1_MASK);
-    r.mouseRelease(InputEvent.BUTTON1_MASK);
-    
+    println ("play/pause"); 
+    r.keyPress(keyEvent.VK_SPACE);
+    r.keyRelease(KeyEvent.VK_SPACE);
   }
-  
-  
+
+
   // handle any slider changes
   mySlider.update();
   mySlider.render();
-  
+
   // use the slider value to update the threshold
   myButton.vidThreshold = int (map(mySlider.sliderVal, 0, 100, 50, 300) );  
   myButton2.vidThreshold = int (map(mySlider.sliderVal, 0, 100, 50, 300) );
-  
-  //make buttons draggable
-  
-  if (keyPressed) {
-    { 
-      if (key == 'r' || key == 'R' ) {
-        myButton.positionX = mouseX; 
-        myButton.positionY = mouseY;
-      }
-    }
-  }
-
-    
-  if (keyPressed) {
-    { 
-      if (key == 'g' || key == 'G') {
-        myButton2.positionX = mouseX; 
-        myButton2.positionY = mouseY;
-      }
-    }
-  }
-  
-  
-  
 }
-
 
 
 
